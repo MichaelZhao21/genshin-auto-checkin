@@ -2,6 +2,8 @@
 names=()
 cookies=()
 
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
 a=0
 while read line; do
     if [ -n "$line" ]; then
@@ -13,7 +15,7 @@ while read line; do
             a=0
         fi
     fi
-done <config
+done <"$SCRIPT_DIR/config"
 
 max="$((${#names[@]} - 1))"
 for i in $(seq 0 $max); do
@@ -33,5 +35,5 @@ for i in $(seq 0 $max); do
         -H "Cookie: ${cookies[$i]}" \
         --data-raw '{"act_id":"e202102251931481"}' \
         --compressed --silent)
-    echo "$(date) | ${names[$i]}: ${data}" >> ./out.log
+    echo "$(date) | ${names[$i]}: ${data}" >> "$SCRIPT_DIR/out.log"
 done
