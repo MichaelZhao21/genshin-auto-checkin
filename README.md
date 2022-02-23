@@ -31,6 +31,8 @@ Press enter and you should see a bunch of information that is spit out. This sho
 
 **WARNING: DO NOT SHARE THIS COOKIE STRING!!!** Although it can only be used to access your web client, it still is not wise to share something that can only be accessed after you log in.
 
+**ALSO NOTE: If you change your password, the token string WILL CHANGE AS WELL, so you will need to get a new cookie string for the script!**
+
 ## Configuration
 
 Create a file called `config` in this same directory and add the following contents:
